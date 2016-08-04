@@ -1,3 +1,6 @@
+## 0.0.7 (2016-08-04)
+  - 9408ec3c5d22b54d038c0909926ee661fbd7c25c 2016-08-04 | Change pushing to do all (HEAD -> release-0.0.7, develop) [Ismo Vuorinen]
+
 ## 0.0.6 (2016-08-04)
   - 5af80c229c83d1716876f767fed56fa0352dbaab 2016-08-04 | Ask should we push to origin, with tags (HEAD -> release-0.0.6, develop) [Ismo Vuorinen]
 
