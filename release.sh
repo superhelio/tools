@@ -11,12 +11,6 @@
 # file in which to update version number
 FILE_VERSION="VERSION"
 FILE_CHANGELOG="CHANGELOG.md"
-FORCE="0"
-
-if [ $1 = '-f' ]; then
-    FORCE="1"
-fi
-
 
 NOW="$(date +'%B %d, %Y')"
 RED="\033[1;31m"
@@ -90,11 +84,9 @@ if [ "$NEW_VERSION" = "" ]; then
     NEW_VERSION=$SUGGESTED_VERSION
 fi
 echo -e "${NOTICE_FLAG} Will set new version to be ${WHITE}$NEW_VERSION"
-
-if [ "$FORCE" = "0" ]; then
-    echo -ne "${WARNING_FLAG} This is the last chance to bail out before anything has happened."
-    read
-fi
+echo ""
+echo -ne "${WARNING_FLAG} This is the last chance to bail out before anything has happened."
+read
 
 # Set up our release branch name
 BRANCH_RELEASE=release-$NEW_VERSION
