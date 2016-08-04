@@ -145,9 +145,7 @@ echo -ne "${QUESTION_FLAG} ${CYAN}Push?"
 
 read PUSH
 if [[ $PUSH =~ [yY](es)* ]] || [ "$PUSH" = "" ]; then
-    git push --tags
-    git push $BRANCH_MASTER
-    git push $BRANCH_DEV
+    git push --all origin
 fi
 
 echo -e "${NOTICE_FLAG} Done!"
