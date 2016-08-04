@@ -140,3 +140,5 @@ git merge --no-ff $BRANCH_RELEASE
 
 # Remove release branch
 git branch -d $BRANCH_RELEASE
+
+echo -e "${NOTICE_FLAG} Done!"
