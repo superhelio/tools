@@ -121,6 +121,9 @@ echo -e "$ADJUSTMENTS_MSG"
 read
 echo -e "$PUSHING_MSG"
 
+# Make sure changes have been added
+git add $FILE_VERSION $FILE_CHANGELOG
+
 # Commit version number increment
 git commit -am "Incrementing version number to $NEW_VERSION"
 
@@ -129,7 +132,7 @@ git checkout $BRANCH_MASTER
 git merge --no-ff $BRANCH_RELEASE
 
 # Create tag for new version from -master
-git tag $NEW_VERSION
+git tag -am "Tag version ${NEW_VERSION}." "$NEW_VERSION"
 
 # Merge release branch with the new version number back into develop
 git checkout $BRANCH_DEV
