@@ -1,3 +1,9 @@
+## 0.0.10 (2016-08-04)
+  - db2367d 2016-08-04 | Create the README.md (HEAD -> release-0.0.10, develop) [Ismo Vuorinen]
+  - 0140b53 2016-08-04 | Implement [shellcheck](https://www.shellcheck.net/) recommendations [Ismo Vuorinen]
+  - eb48964 2016-08-04 | Check for the first commit [Ismo Vuorinen]
+  - 5bf9c8f 2016-08-04 | Use env to detect bash path [Ismo Vuorinen]
+
 ## 0.0.9 (2016-08-04)
   - 72d3fe5 2016-08-04 | Changed git log hash length (HEAD -> release-0.0.9, develop) [Ismo Vuorinen]
   - 94cefa4 2016-08-04 | Remove merges from git log command output [Ismo Vuorinen]
