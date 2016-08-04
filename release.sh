@@ -12,7 +12,7 @@
 FILE_VERSION="VERSION"
 FILE_CHANGELOG="CHANGELOG.md"
 
-NOW="$(date +'%B %d, %Y')"
+NOW="$(date +'%Y-%m-%d')"
 RED="\033[1;31m"
 GREEN="\033[0;32m"
 YELLOW="\033[1;33m"
@@ -99,7 +99,7 @@ echo $NEW_VERSION > $FILE_VERSION
 
 # Create our changelog
 echo "## $NEW_VERSION ($NOW)" > tmpfile
-git log --pretty=format:"  - %s" "$BASE_STRING"...HEAD >> tmpfile
+git log --pretty=format:"  - %H %ad | %s%d [%an]" --date=short "$BASE_STRING"...HEAD >> tmpfile
 echo "" >> tmpfile
 echo "" >> tmpfile
 cat $FILE_CHANGELOG >> tmpfile
