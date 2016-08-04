@@ -92,18 +92,18 @@ read
 BRANCH_RELEASE=release-$NEW_VERSION
 
 # create the release branch from the -develop branch
-#git checkout -b $BRANCH_RELEASE $BRANCH_DEV
+git checkout -b $BRANCH_RELEASE $BRANCH_DEV
 
 # Set our new version to our version file
-#echo $NEW_VERSION > $FILE_VERSION
+echo $NEW_VERSION > $FILE_VERSION
 
 # Create our changelog
-#echo "## $NEW_VERSION ($NOW)" > tmpfile
-#git log --pretty=format:"  - %s" "$BASE_STRING"...HEAD >> tmpfile
-#echo "" >> tmpfile
-#echo "" >> tmpfile
-#cat $FILE_CHANGELOG >> tmpfile
-#mv tmpfile $FILE_CHANGELOG
+echo "## $NEW_VERSION ($NOW)" > tmpfile
+git log --pretty=format:"  - %s" "$BASE_STRING"...HEAD >> tmpfile
+echo "" >> tmpfile
+echo "" >> tmpfile
+cat $FILE_CHANGELOG >> tmpfile
+mv tmpfile $FILE_CHANGELOG
 
 echo -e "$ADJUSTMENTS_MSG"
 read
