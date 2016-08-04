@@ -41,10 +41,10 @@ ADJUSTMENTS_MSG="${QUESTION_FLAG} ${CYAN}Now you can make adjustments to ${WHITE
 PUSHING_MSG="${NOTICE_FLAG} Pushing new version to the ${WHITE}origin${CYAN}..."
 
 
-#if [ ! $LATEST_HASH ]; then
-#    echo -e "${ERROR_FLAG} No commits in the repo. Cannot continue."
-#    exit 1
-#fi
+if [ ! "$LATEST_HASH" ]; then
+    echo -e "${ERROR_FLAG} No commits in the repo. Cannot continue."
+    exit 1
+fi
 
 # Do we have a file with our version?
 if [ ! -f $FILE_VERSION ]; then
