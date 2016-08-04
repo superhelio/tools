@@ -58,6 +58,18 @@ if [ ! -f $FILE_VERSION ]; then
     fi
 fi
 
+# Do we have a file with our changes?
+if [ ! -f $FILE_CHANGELOG ]; then
+    echo -ne "${QUESTION_FLAG} ${CYAN}Can't find changelog file (${FILE_CHANGELOG}), create one?"
+
+    read RESPONSE
+    if [[ $RESPONSE =~ [yY](es)* ]] || [ "$RESPONSE" = "" ]; then
+        echo "" > $FILE_CHANGELOG
+    else
+        exit 1
+    fi
+fi
+
 # Continue to guess new value for our version
 BASE_STRING=`cat $FILE_VERSION`
 
