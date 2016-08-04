@@ -141,11 +141,11 @@ git merge --no-ff $BRANCH_RELEASE
 # Remove release branch
 git branch -d $BRANCH_RELEASE
 
-echo -ne "${QUESTION_FLAG} ${CYAN}Push to origin?"
+echo -ne "${QUESTION_FLAG} ${CYAN}Push?"
 
 read PUSH
 if [[ $PUSH =~ [yY](es)* ]] || [ "$PUSH" = "" ]; then
-    git push origin --tags
+    git push --tags
 fi
 
 echo -e "${NOTICE_FLAG} Done!"
