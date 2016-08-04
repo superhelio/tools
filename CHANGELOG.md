@@ -1,3 +1,6 @@
+## 0.0.6 (2016-08-04)
+  - 5af80c229c83d1716876f767fed56fa0352dbaab 2016-08-04 | Ask should we push to origin, with tags (HEAD -> release-0.0.6, develop) [Ismo Vuorinen]
+
 ## 0.0.5 (2016-08-04)
   - 9ac3cdf1f2ad87a24756614369b6911e4232ac0d 2016-08-04 | Final message to show we are done (HEAD -> release-0.0.5, origin/develop, develop) [Ismo Vuorinen]
 
