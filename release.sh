@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Git-flow release automation with
 # version bumping and changelog generation
