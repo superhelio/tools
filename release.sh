@@ -111,7 +111,7 @@ echo $NEW_VERSION > $FILE_VERSION
 
 # Create our changelog
 echo "## $NEW_VERSION ($NOW)" > tmpfile
-git log --pretty=format:"  - %H %ad | %s%d [%an]" --date=short "$BASE_STRING"...HEAD >> tmpfile
+git log --pretty=format:"  - %H %ad | %s%d [%an]" --date=short --no-merges "$BASE_STRING"...HEAD >> tmpfile
 echo "" >> tmpfile
 echo "" >> tmpfile
 cat $FILE_CHANGELOG >> tmpfile
