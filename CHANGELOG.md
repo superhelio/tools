@@ -1,3 +1,10 @@
+## 0.1.0 (2016-08-10)
+  - Remove paging from git log, works better for automation
+  - Change changelog formatting to simple message
+  - Add link to full changelog, detect project url from origin url
+  - Add composer.json, ignore vendor folder
+
+
 ## 0.0.10 (2016-08-04)
   - db2367d 2016-08-04 | Create the README.md (HEAD -> release-0.0.10, develop) [Ismo Vuorinen]
   - 0140b53 2016-08-04 | Implement [shellcheck](https://www.shellcheck.net/) recommendations [Ismo Vuorinen]
