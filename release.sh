@@ -153,6 +153,7 @@ echo -ne "${QUESTION_FLAG} ${CYAN}Push everything to origin?"
 read -r PUSH
 if [[ $PUSH =~ [yY](es)* ]] || [ "$PUSH" = "" ]; then
     git push --all origin
+    git push --tags origin
 fi
 
 echo -e "${NOTICE_FLAG} Done!"
