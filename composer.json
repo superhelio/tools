@@ -1,0 +1,16 @@
+{
+    "name": "superhelio/tools",
+    "description": "Collection of our tools",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ismo Vuorinen",
+            "email": "ismo.vuorinen@superhelio.com"
+        }
+    ],
+    "require": {},
+    "bin": [
+        "release.sh"
+    ]
+}
