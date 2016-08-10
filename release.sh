@@ -118,7 +118,7 @@ echo "$NEW_VERSION" > "$FILE_VERSION"
 echo "## $NEW_VERSION ($NOW)" > tmpfile
 git --no-pager log --pretty=format:"  - %s" --date=short --no-merges "$BASE_STRING"...HEAD >> tmpfile
 echo "" >> tmpfile
-echo "[Full changelog]($PROJECT_URL/compare/$BASE_STRING...$NEW_VERSION)"
+echo "[Full changelog]($PROJECT_URL/compare/$BASE_STRING...$NEW_VERSION)" >> tmpfile
 echo "" >> tmpfile
 echo "" >> tmpfile
 cat "$FILE_CHANGELOG" >> tmpfile
