@@ -1,7 +1,7 @@
 ## 0.1.1 (2016-08-10)
   - Echo into the temp file, not to the screen
 
-[Full changelog](https://github.com/superhelio/tools.git/compare/0.1.0...0.1.1)
+[Full changelog](https://github.com/superhelio/tools/compare/0.1.0...0.1.1)
 
 
 ## 0.1.0 (2016-08-10)
