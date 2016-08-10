@@ -116,7 +116,7 @@ echo "$NEW_VERSION" > "$FILE_VERSION"
 
 # Create our changelog
 echo "## $NEW_VERSION ($NOW)" > tmpfile
-git log --pretty=format:"  - %h %ad | %s%d [%an]" --date=short --no-merges "$BASE_STRING"...HEAD >> tmpfile
+git log --pretty=format:"  - %s" --date=short --no-merges "$BASE_STRING"...HEAD >> tmpfile
 echo "" >> tmpfile
 echo "[Full changelog]($PROJECT_URL/compare/$BASE_STRING...$NEW_VERSION)"
 echo "" >> tmpfile
