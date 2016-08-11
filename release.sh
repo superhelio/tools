@@ -25,9 +25,9 @@ RESET="\033[0m"
 
 LATEST_HASH=$(git log --pretty=format:'%h' -n 1)
 
-# Guess our remote url from remote.origin.url (minus .git from the end),
-# change to your github project url. used to create Full changelog link
-PROJECT_URL=$(git config --get remote.origin.url | sed 's/\.git//')
+# Guess our remote url from remote.origin.url. Used to create Changelog link.
+# You can change this to your project url, but detection should cover 99%.
+PROJECT_URL=$(git config --get remote.origin.url | sed 's/\.git//' | sed 's/\:/\//' | sed 's/git@/https\:\/\//')
 
 # current Git branch
 BRANCH_CURRENT=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
@@ -114,11 +114,25 @@ git checkout -b "$BRANCH_RELEASE" "$BRANCH_DEV"
 # Set our new version to our version file
 echo "$NEW_VERSION" > "$FILE_VERSION"
 
+# Fix compare url based on BitBucket or Github, default to GitHub
+if [[ "$PROJECT_URL" == *bitbucket.org* ]]; then
+    # https://bitbucket.org/vendor/project/branches/compare/_NEW_%0D_OLD_
+    VER_COMP_STR='branches/compare'
+    VER_COMP_SEP='%0D'
+    VER_COMP_TAG="$NEW_VERSION$VER_COMP_SEP$BASE_STRING"
+else
+    # https://github.com/vendor/project/compare/_OLD_..._NEW_
+    VER_COMP_STR='compare'
+    VER_COMP_SEP='...'
+    VER_COMP_TAG="$BASE_STRING$VER_COMP_SEP$NEW_VERSION"
+fi
+
 # Create our changelog
 echo "## $NEW_VERSION ($NOW)" > tmpfile
-git --no-pager log --pretty=format:"  - %s" --date=short --no-merges "$BASE_STRING"...HEAD >> tmpfile
+git --no-pager log --pretty=format:"  - %s" --date=short --no-merges "$BASE_STRING"...HEAD | sed -n '1!G;h;$p' >> tmpfile
 echo "" >> tmpfile
-echo "[Full changelog]($PROJECT_URL/compare/$BASE_STRING...$NEW_VERSION)" >> tmpfile
+echo "" >> tmpfile
+echo "[Full changelog]($PROJECT_URL/$VER_COMP_STR/$VER_COMP_TAG)" >> tmpfile
 echo "" >> tmpfile
 echo "" >> tmpfile
 cat "$FILE_CHANGELOG" >> tmpfile
