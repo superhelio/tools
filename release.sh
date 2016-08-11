@@ -25,9 +25,9 @@ RESET="\033[0m"
 
 LATEST_HASH=$(git log --pretty=format:'%h' -n 1)
 
-# Guess our remote url from remote.origin.url (minus .git from the end),
-# change to your github project url. used to create Full changelog link
-PROJECT_URL=$(git config --get remote.origin.url | sed 's/\.git//')
+# Guess our remote url from remote.origin.url. Used to create Changelog link.
+# You can change this to your project url, but detection should cover 99%.
+PROJECT_URL=$(git config --get remote.origin.url | sed 's/\.git//' | sed 's/\:/\//' | sed 's/git@/https\:\/\//')
 
 # current Git branch
 BRANCH_CURRENT=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
