@@ -114,11 +114,25 @@ git checkout -b "$BRANCH_RELEASE" "$BRANCH_DEV"
 # Set our new version to our version file
 echo "$NEW_VERSION" > "$FILE_VERSION"
 
+# Fix compare url based on BitBucket or Github, default to GitHub
+if [[ "$PROJECT_URL" == *bitbucket.org* ]]; then
+    # https://bitbucket.org/vendor/project/branches/compare/_NEW_%0D_OLD_
+    VER_COMP_STR='branches/compare'
+    VER_COMP_SEP='%0D'
+    VER_COMP_TAG="$NEW_VERSION$VER_COMP_SEP$BASE_STRING"
+else
+    # https://github.com/vendor/project/compare/_OLD_..._NEW_
+    VER_COMP_STR='compare'
+    VER_COMP_SEP='...'
+    VER_COMP_TAG="$BASE_STRING$VER_COMP_SEP$NEW_VERSION"
+fi
+
 # Create our changelog
 echo "## $NEW_VERSION ($NOW)" > tmpfile
 git --no-pager log --pretty=format:"  - %s" --date=short --no-merges "$BASE_STRING"...HEAD >> tmpfile
 echo "" >> tmpfile
-echo "[Full changelog]($PROJECT_URL/compare/$BASE_STRING...$NEW_VERSION)" >> tmpfile
+echo "" >> tmpfile
+echo "[Full changelog]($PROJECT_URL/$VER_COMP_STR/$VER_COMP_TAG)" >> tmpfile
 echo "" >> tmpfile
 echo "" >> tmpfile
 cat "$FILE_CHANGELOG" >> tmpfile
