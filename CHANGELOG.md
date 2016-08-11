@@ -3,7 +3,7 @@
   - Take account diffs in bitbucket and github changelog urls
   - Reverse commit message list
 
-[Full changelog](https///github.com/superhelio/tools/compare/0.1.2...0.1.3)
+[Full changelog](https://github.com/superhelio/tools/compare/0.1.2...0.1.3)
 
 
 ## 0.1.2 (2016-08-10)
