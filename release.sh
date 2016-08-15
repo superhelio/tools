@@ -17,11 +17,11 @@ NOW="$(date +'%Y-%m-%d')"
 RED="\033[1;31m"
 GREEN="\033[0;32m"
 YELLOW="\033[1;33m"
-BLUE="\033[1;34m"
-PURPLE="\033[1;35m"
+#BLUE="\033[1;34m"
+#PURPLE="\033[1;35m"
 CYAN="\033[1;36m"
 WHITE="\033[1;37m"
-RESET="\033[0m"
+#RESET="\033[0m"
 
 LATEST_HASH=$(git log --pretty=format:'%h' -n 1)
 
@@ -30,7 +30,7 @@ LATEST_HASH=$(git log --pretty=format:'%h' -n 1)
 PROJECT_URL=$(git config --get remote.origin.url | sed 's/\.git//' | sed 's/\:/\//' | sed 's/git@/https\:\/\//' | sed 's/\/\/\//\:\/\//')
 
 # current Git branch
-BRANCH_CURRENT=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+#BRANCH_CURRENT=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
 
 # establish branch and tag name variables
 BRANCH_DEV=develop
@@ -130,7 +130,6 @@ fi
 # Create our changelog
 echo "## $NEW_VERSION ($NOW)" > tmpfile
 git --no-pager log --pretty=format:"  - %s" --date=short --no-merges "$BASE_STRING"...HEAD | sed -n '1!G;h;$p' >> tmpfile
-echo "" >> tmpfile
 echo "" >> tmpfile
 echo "[Full changelog]($PROJECT_URL/$VER_COMP_STR/$VER_COMP_TAG)" >> tmpfile
 echo "" >> tmpfile

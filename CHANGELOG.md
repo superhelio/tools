@@ -1,3 +1,12 @@
+## 0.1.5 (2016-08-15)
+  - Add .editorconfig
+  - Ignore .idea folder
+  - Comment out unused variables (unused colors and BRANCH_CURRENT)
+  - Remove extra new line before Full changelog link
+
+[Full changelog](https://github.com/superhelio/tools/compare/0.1.4...0.1.5)
+
+
 ## 0.1.4 (2016-08-11)
   - Fix changelog url generation
 
