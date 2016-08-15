@@ -1,3 +1,11 @@
+## 0.1.6 (2016-08-15)
+  - Added license (MIT)
+  - Expand release.sh section to contain requirements, features and usage
+  - New sections is README.md: How to use, Changelog, License
+
+[Full changelog](https://github.com/superhelio/tools/compare/0.1.5...0.1.6)
+
+
 ## 0.1.5 (2016-08-15)
   - Add .editorconfig
   - Ignore .idea folder
