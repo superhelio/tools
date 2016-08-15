@@ -12,6 +12,12 @@ Collection of cool tools that make life easier.
     - **Usage:**
         - Commit everything, run `release.sh` and follow directions
 
+## How to use in your project
+
+We try to keep this as easy as possible to include to your projects, so we are open to pull requests.
+
+Currently we have [composer.json](composer.json) that installs the tools to your `vendor/bin` folder, you can [include the project as git submodule](https://gist.github.com/gitaarik/8735255) or just copy the files to your project. Which ever works best for you.
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently. We use [release.sh](release.sh) to update the CHANGELOG.
