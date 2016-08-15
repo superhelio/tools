@@ -131,7 +131,6 @@ fi
 echo "## $NEW_VERSION ($NOW)" > tmpfile
 git --no-pager log --pretty=format:"  - %s" --date=short --no-merges "$BASE_STRING"...HEAD | sed -n '1!G;h;$p' >> tmpfile
 echo "" >> tmpfile
-echo "" >> tmpfile
 echo "[Full changelog]($PROJECT_URL/$VER_COMP_STR/$VER_COMP_TAG)" >> tmpfile
 echo "" >> tmpfile
 echo "" >> tmpfile
